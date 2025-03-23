@@ -1,4 +1,5 @@
 import "./globals.css"
+import StoreProvider from "./StoreProvider"
 
 export const metadata = {
 	title: "Hyper Teknoloji",
@@ -7,8 +8,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
-			<body className={` vsc-initialized`}>{children}</body>
-		</html>
+		<StoreProvider>
+			<html lang="en">
+				<body className={` vsc-initialized`}>{children}</body>
+			</html>
+		</StoreProvider>
 	)
 }
