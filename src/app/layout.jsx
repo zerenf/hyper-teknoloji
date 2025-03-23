@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar/Navbar"
 import "./globals.css"
 import StoreProvider from "./StoreProvider"
 
@@ -10,7 +11,10 @@ export default function RootLayout({ children }) {
 	return (
 		<StoreProvider>
 			<html lang="en">
-				<body className={` vsc-initialized`}>{children}</body>
+				<body className={` vsc-initialized`}>
+					<Navbar />
+					{children}
+				</body>
 			</html>
 		</StoreProvider>
 	)
