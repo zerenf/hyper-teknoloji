@@ -2,9 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
-	const { data } = await axios.get("https://fakestoreapi.com/products")
-	console.log("data:", data)
-	return data
+	const { data } = await axios.post(
+		"https://api.hyperteknoloji.com.tr/Products/List",
+		{},
+		{
+			headers: {
+				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+				Accept: "application/json",
+			},
+		}
+	)
+	const limitedData = data.data.slice(0, 20)
+
+	return limitedData
 })
 
 const initialState = {

@@ -22,22 +22,19 @@ const Navbar = () => {
 						</Link>
 					</div>
 					<div className=" cursor-pointer flex item-center gap-x-3">
-						<Link href={"/favorite-list"}>
-							<div className="relative">
-								<FaHeart size={28} fill="red" />
-								<div className="w-5 h-5 bg-blue-900 rounded-full flex justify-center items-center text-white font-bold absolute -top-2 -left-3">
-									<span>{favoriteItemsList?.length}</span>
-								</div>
+						<div className="relative">
+							<FaHeart size={28} fill="red" />
+							<div className="w-5 h-5 bg-blue-900 rounded-full flex justify-center items-center text-white font-bold absolute -top-2 -left-3">
+								<span>{favoriteItemsList?.length}</span>
 							</div>
-						</Link>
-						<Link href={"/cart"}>
-							<div className="relative">
-								<FaShoppingCart size={30} color="#162456 " />
-								<div className="w-5 h-5 bg-red-500 rounded-full flex justify-center items-center text-white font-bold absolute -top-2 -right-3">
-									{cartItemsList?.length}
-								</div>
+						</div>
+
+						<div className="relative">
+							<FaShoppingCart size={30} color="#162456 " />
+							<div className="w-5 h-5 bg-red-500 rounded-full flex justify-center items-center text-white font-bold absolute -top-2 -right-3">
+								{cartItemsList?.length}
 							</div>
-						</Link>
+						</div>
 					</div>
 				</nav>
 			</div>

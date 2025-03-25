@@ -14,11 +14,8 @@ const Card = ({ product }) => {
 	const favoriteItemsList = useSelector((state) => state.favorites.favoriteItemsList)
 	const cartItemsList = useSelector((state) => state.cart.cartItemsList)
 
-	const isFavorite = favoriteItemsList.includes(product.id)
-	const isInCart = cartItemsList.includes(product.id)
-
-	// console.log("favoriteItemsList:", favoriteItemsList)
-	// console.log("cartItemsList:", cartItemsList)
+	const isFavorite = favoriteItemsList.includes(product.productID)
+	const isInCart = cartItemsList.includes(product.productID)
 
 	const toggleFavorite = (id) => {
 		if (favoriteItemsList.includes(id)) {
@@ -37,17 +34,17 @@ const Card = ({ product }) => {
 	}
 
 	return (
-		<div className="w-[300px] h-[360px] border rounded-lg overflow-hidden relative">
+		<div className="w-[300px] h-[360px] customShadow rounded-lg overflow-hidden relative m-5">
 			<div className="w-[300px] h-[180px] relative overflow-hidden">
-				<Image src={product.image} fill className="object-cover" alt={`product.name`} />
+				<Image src={product.productData.productMainImage} fill className="object-cover" alt={`product.productName`} />
 				<div className="absolute right-1 top-1">
 					<p className="text-[11px] px-2 py-1 bg-blue-700 text-white inline-block rounded-2xl">İndirim</p>
 				</div>
 			</div>
 			<div className="m-3">
 				<div className="flex justify-between">
-					<div>{product.name}</div>
-					<div>{product.price}$</div>
+					<div>{product.productName}</div>
+					<div className="font-bold">{product.marketPrice}$</div>
 				</div>
 				<div className="flex">
 					{[...Array(5)].map((_, i) => (
@@ -55,7 +52,7 @@ const Card = ({ product }) => {
 					))}
 				</div>
 				<div className="my-2">
-					<p className="text-[14px] line-clamp-3">{product.description}</p>
+					<p className="text-[14px] line-clamp-3">{product.productData.productInfo}</p>
 				</div>
 			</div>
 			<div className="w-full flex justify-center items-center absolute bottom-2">
@@ -63,7 +60,7 @@ const Card = ({ product }) => {
 					className={`w-3/5  ${
 						isInCart ? "bg-blue-900" : "bg-blue-950"
 					} hover:bg-blue-900 px-2 py-1 rounded-sm text-white text-center cursor-pointer mr-3 flex justify-center items-center`}
-					onClick={() => toggleCart(product.id)}
+					onClick={() => toggleCart(product.productID)}
 				>
 					{isInCart ? (
 						<>
@@ -73,7 +70,7 @@ const Card = ({ product }) => {
 						"Sepete Ekle"
 					)}
 				</div>
-				<div className="cursor-pointer" onClick={() => toggleFavorite(product.id)}>
+				<div className="cursor-pointer" onClick={() => toggleFavorite(product.productID)}>
 					{isFavorite ? <FaHeart size={24} fill="red" /> : <FaRegHeart size={24} />}
 				</div>
 			</div>
