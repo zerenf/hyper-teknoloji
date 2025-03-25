@@ -11,6 +11,10 @@ Ardından tarayıcınızda http://localhost:3000 adresini açarak sonucu görebi
 
 Sayfayı düzenlemeye `app/page.js` dosyasını değiştirerek başlayabilirsiniz. Yaptığınız değişiklikler otomatik olarak güncellenecektir.
 
+## Deploy/Production
+
+Bu projeyi aynı zamanda Vercel üzerinden deploy ettim, canlıya aldım. Linke tıklayarak ulaşabilirsiniz: https://hyper-teknoloji-case.vercel.app/
+
 ## Açıklama
 
 -Bu proje bir NextJS projesidir.
